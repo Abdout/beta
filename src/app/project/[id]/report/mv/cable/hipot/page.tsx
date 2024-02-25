@@ -1,17 +1,14 @@
 "use client";
-
-
 import Footer from "@/component/report/footer/table";
 import Header from "@/component/report/header/table";
 import Kit from "@/component/report/kit/table";
 import React, { useEffect, useState } from "react";
 import { usePDF } from "react-to-pdf";
-import Layout from "../../../layout";
-import { ActionContext } from "@/provider/action";
 import Breadcrumb from "@/component/project/report/layout/crumb";
 import Action from "@/component/project/layout/action";
 import { useProject } from "@/provider/project";
 import General from "@/component/report/general/info";
+import { general, hipot } from "@/constant/report/cb";
 
 // Get the current URL path
 const path = window.location.pathname;
@@ -43,7 +40,7 @@ const HiPot = ({ params }: { params: Params }) => {
         <Breadcrumb params={params} />
         <div ref={targetRef} className="space-y-10 mr-20">
           <Header triggerUpdate={triggerUpdate} description={description}/>
-          <General />
+          <General data={general}/>
           <Kit triggerUpdate={triggerUpdate}/>
           <Footer 
             triggerUpdate={triggerUpdate} 

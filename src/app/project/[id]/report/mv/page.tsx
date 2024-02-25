@@ -54,7 +54,7 @@ const MV: React.FC<IndexProps> = ({ params }) => {
     fetchProject(params.id);
   }, [params.id, fetchProject]);
   const { toPDF, targetRef } = usePDF({
-    filename: `${project?.title} ITP.pdf`,
+    filename: `${project?.customer} ITP.pdf`,
   });
 
   if (!project || !project.voltages.MV) {
@@ -68,7 +68,7 @@ const MV: React.FC<IndexProps> = ({ params }) => {
 
   return (
     <div className="flex flex-col  ">
-      <Action projectTitle={project?.title || ""} toPDF={toPDF} />
+      <Action projectTitle={project?.customer || ""} toPDF={toPDF} />
       <Breadcrumb params={params} />
       {selectedOptions.map((optionKey: string) => (
         <Link
