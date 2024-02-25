@@ -1,4 +1,5 @@
 import { SelectOption } from "@/component/atom/select/select";
+import { Dispatch, SetStateAction } from "react";
 
 export interface CreateState {
     customer: string;
@@ -29,29 +30,29 @@ export interface CreateState {
 }
 
 export interface CreateContextProps extends CreateState {
-    setCustomer: (customer: string) => void;
-    setLocation: (location: string) => void;
-    setConsultant: (consultant: string) => void;
-    setClient: (client: string) => void;
-    setVoltages: (voltages: { [key: string]: boolean }) => void;
-    setLvOptions: (lvOptions: SelectOption[]) => void;
-    setMvOptions: (mvOptions: SelectOption[]) => void;
-    setHvOptions: (hvOptions: SelectOption[]) => void;
-    setEvOptions: (evOptions: SelectOption[]) => void;
-    setLvSwgr: (lvSwgr: SelectOption[]) => void;
-    setLvTrafo: (lvTrafo: SelectOption[]) => void;
-    setLvRmu: (lvRmu: SelectOption[]) => void;
-    setLvCable: (lvCable: SelectOption[]) => void;
-    setMvSwgr: (mvSwgr: SelectOption[]) => void;
-    setMvTrafo: (mvTrafo: SelectOption[]) => void;
-    setMvRmu: (mvRmu: SelectOption[]) => void;
-    setMvCable: (mvCable: SelectOption[]) => void;
-    setHvSwgr: (hvSwgr: SelectOption[]) => void;
-    setHvTrafo: (hvTrafo: SelectOption[]) => void;
-    setHvRmu: (hvRmu: SelectOption[]) => void;
-    setHvCable: (hvCable: SelectOption[]) => void;
-    setEvSwgr: (evSwgr: SelectOption[]) => void;
-    setEvTrafo: (evTrafo: SelectOption[]) => void;
-    setEvRmu: (evRmu: SelectOption[]) => void;
-    setEvCable: (evCable: SelectOption[]) => void;
+    setCustomer: Dispatch<SetStateAction<string>>;
+    setLocation: Dispatch<SetStateAction<string>>;
+    setConsultant: Dispatch<SetStateAction<string>>;
+    setClient: Dispatch<SetStateAction<string>>;
+    setVoltages: Dispatch<SetStateAction<{ [key: string]: boolean }>>;
+    setLvOptions: Dispatch<SetStateAction<SelectOption[]>>;
+    setMvOptions: Dispatch<SetStateAction<SelectOption[]>>;
+    setHvOptions: Dispatch<SetStateAction<SelectOption[]>>;
+    setEvOptions: Dispatch<SetStateAction<SelectOption[]>>;
+    setLvSwgr: Dispatch<SetStateAction<SelectOption[]>>;
+    setLvTrafo: Dispatch<SetStateAction<SelectOption[]>>;
+    setLvRmu: Dispatch<SetStateAction<SelectOption[]>>;
+    setLvCable: Dispatch<SetStateAction<SelectOption[]>>;
+    setMvSwgr: Dispatch<SetStateAction<SelectOption[]>>;
+    setMvTrafo: Dispatch<SetStateAction<SelectOption[]>>;
+    setMvRmu: Dispatch<SetStateAction<SelectOption[]>>;
+    setMvCable: Dispatch<SetStateAction<SelectOption[]>>;
+    setHvSwgr: Dispatch<SetStateAction<SelectOption[]>>;
+    setHvTrafo: Dispatch<SetStateAction<SelectOption[]>>;
+    setHvRmu: Dispatch<SetStateAction<SelectOption[]>>;
+    setHvCable: Dispatch<SetStateAction<SelectOption[]>>;
+    setEvSwgr: Dispatch<SetStateAction<SelectOption[]>>;
+    setEvTrafo: Dispatch<SetStateAction<SelectOption[]>>;
+    setEvRmu: Dispatch<SetStateAction<SelectOption[]>>;
+    setEvCable: Dispatch<SetStateAction<SelectOption[]>>;
 }
