@@ -1,0 +1,34 @@
+import { FC } from "react";
+import SmIcon from "@/component/atom/icon/sm";
+import { useProject } from "@/provider/project";
+import { Icon } from "@iconify/react";
+
+interface DeleteProps {
+  id: string;
+}
+
+const Delete: FC<DeleteProps> = ({ id }) => {
+  const { refreshProjects } = useProject();
+
+  const deleteProject = async () => {
+    const confirmed = window.confirm("Are you sure?");
+
+    if (confirmed) {
+      const res = await fetch(`http://localhost:3000/api/project?id=${id}`, {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        refreshProjects();
+      }
+    }
+  };
+
+  return (
+    <button onClick={deleteProject} className="opacity-80 hover:opacity-100">
+      <Icon icon="ant-design:delete-outlined" width={30}/>
+    </button>
+  );
+};
+
+export default Delete;
