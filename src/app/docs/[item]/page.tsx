@@ -15,21 +15,8 @@ const Item = () => {
 
   return (
     <div>
-      <h1>{Item.item}</h1>
-      {Item.subitem.map((subitem, index) => (
-        <div key={index}>
-          <h2>{subitem.subitem}</h2>
-          {subitem.activity.map((activity, activityIndex) => (
-            <div key={activityIndex}>
-              <h3>{activity.activity}</h3>
-              <p>{activity.definition}</p>
-              <p>{activity.purpose}</p>
-              <p>{activity.procedure}</p>
-              <p>{activity.criteria}</p>
-            </div>
-          ))}
-        </div>
-      ))}
+      <h1>hello</h1>
+      
     </div>
   );
 }
