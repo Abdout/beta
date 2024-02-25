@@ -12,11 +12,6 @@ export const useCreate = () => {
   return context;
 };
 
-const useStateWithSetter = <T,>(initialValue: T): [T, (value: T) => void] => {
-  const [value, setValue] = useState<T>(initialValue);
-  return [value, setValue];
-};
-
 export const CreateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const initialState: CreateState = {
     customer: "",
@@ -47,7 +42,7 @@ export const CreateProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   const stateAndSetters = Object.keys(initialState).reduce((acc, key) => {
-    const [state, setter] = useStateWithSetter((initialState as any)[key]);
+    const [state, setter] = useState((initialState as any)[key]);
     return { ...acc, [key]: state, [`set${key.charAt(0).toUpperCase() + key.slice(1)}`]: setter };
   }, {});
 

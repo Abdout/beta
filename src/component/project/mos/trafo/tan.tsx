@@ -32,7 +32,7 @@ const Tan: React.FC<IndexProps> = ({ params }) => {
     <div>
       <h1>Tan Delta</h1>
       <p>
-      Tan Delta, also known as Loss Angle or Dissipation Factor, is a measure of the electrical losses in an insulating material. It represents the angle in a power factor, impedance, or admittance diagram. A high Tan Delta value indicates a high level of dissipation and potential degradation of the insulation. It's a crucial parameter in assessing the health of electrical equipment and is often used in preventative maintenance and quality assurance.
+      Tan Delta, also known as Loss Angle or Dissipation Factor, is a measure of the electrical losses in an insulating material. It represents the angle in a power factor, impedance, or admittance diagram. A high Tan Delta value indicates a high level of dissipation and potential degradation of the insulation. It&apos;s a crucial parameter in assessing the health of electrical equipment and is often used in preventative maintenance and quality assurance.
     </p>
       
     </div>
