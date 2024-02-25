@@ -1,7 +1,7 @@
 import { useTask } from "@/provider/task";
 
 // deleteTask.js
-export const Delete = async (id) => {
+export const Delete = async (id: string) => {
   const { refreshTasks } = useTask();
   const confirmed = window.confirm("Are you sure?");
 
