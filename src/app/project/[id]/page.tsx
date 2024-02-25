@@ -2,7 +2,7 @@
 import Action from "@/component/project/layout/action";
 import { useEffect, useState } from "react";
 import Info from "@/component/project/detial/info";
-import CardList from "@/component/project/detial/cardlist";
+
 
 
 interface Project {
@@ -55,7 +55,7 @@ const Detail = ({ params }: { params: Params }) => {
     <div className="flex flex-col space-y-4 ">
       <Action projectTitle={project.title} />
       <Info />
-      <CardList />
+     
       
     </div>
   );
