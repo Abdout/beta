@@ -1,10 +1,9 @@
 import { FC } from "react";
-import SmIcon from "@/component/atom/icon/sm";
 import { useProject } from "@/provider/project";
 import { Icon } from "@iconify/react";
 
 interface DeleteProps {
-  id: string;
+  id: string | undefined;
 }
 
 const Delete: FC<DeleteProps> = ({ id }) => {

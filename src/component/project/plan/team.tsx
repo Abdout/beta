@@ -1,7 +1,5 @@
 // Team.tsx
 import LgIcon from '@/component/atom/icon/lg';
-import MdIcon from '@/component/atom/icon/md';
-import XlIcon from '@/component/atom/icon/xl';
 import React from 'react';
 
 interface TeamMember {

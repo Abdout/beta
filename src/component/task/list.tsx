@@ -8,11 +8,8 @@ import Modal from "@/component/atom/modal/modal";
 import Create from "./crud/create";
 import { useModal } from "@/provider/modal";
 import { Icon } from "@iconify/react";
-import { Task } from '@/type/task/task';  // Import the Task type
 import Circle from "./circle";
 import Image from "next/image";
-import { Delete } from "./crud/delete";
-import SmIcon from "../atom/icon/sm";
 import { useProject } from "@/provider/project";
 
 
@@ -39,7 +36,7 @@ const TaskList: React.FC = () => {
     setSelectedRow(null);
   };
 
-  const Delete = async (id) => {
+  const Delete = async (id: string) => {
     const confirmed = window.confirm("Are you sure?");
 
     if (confirmed) {
@@ -98,7 +95,15 @@ const TaskList: React.FC = () => {
       {tasks.map((task) => {
         const formattedEstTime = task.estTime ? task.estTime.toString().padStart(2, '0') + ' hr' : 'N/A'; // format estTime when displaying it
         return (
-          <tr key={task._id} className={`border-b ${task._id === selectedRow ? 'bg-black text-[#fcfcfc]' : ''} hover:bg-gray-100`} onContextMenu={(e) => handleRightClick(e, task._id)}>
+          <tr 
+  key={task._id} 
+  className={`border-b ${task._id === selectedRow ? 'bg-black text-[#fcfcfc]' : ''} hover:bg-gray-100`} 
+  onContextMenu={(e) => {
+    if (task._id) {
+      handleRightClick(e, task._id);
+    }
+  }}
+>
             <td className="py-4">{task.project}</td>
             <td className="py-4">{task.title}</td>
             <td className="py-4">{new Date(task.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}</td>
@@ -154,13 +159,13 @@ const TaskList: React.FC = () => {
            <Icon icon="ant-design:delete-outlined" width={30}/>
            <h3>Delete</h3>
           </button>
-          <button 
+          {/* <button 
           onClick={() => handleEdit(contextMenu.taskID)}
           className="flex gap-4 opacity-80 hover:opacity-100"
           >
             <Icon icon="iconoir:edit" width={30}/>
             <h3>Edit</h3>
-          </button>
+          </button> */}
         </div>
       )}
       

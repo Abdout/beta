@@ -40,7 +40,7 @@ const Profile: FC<Props> = ({ team }) => {
     {docs.map((data, index) => (
       <div className="relative" onClick={() => setSelectedItem(selectedItem === index ? null : index)} key={index}>
         <div className={`p-1 ${selectedItem === index ? 'bg-black text-[#fcfcfc]' : ''}`}>
-          <TextIcon icon={data.icon} label={data.label} color={selectedItem === index ? '[#fcfcfc]' : (index === 2 ? 'yellow' : 'black')} />
+          <TextIcon icon={data.icon} label={data.label}  />
         </div>
         {selectedItem === index && (
           <div className="absolute left-0 right-0 bg-black text-[#fcfcfc] pl-[13px] z-10">
@@ -61,11 +61,11 @@ const Profile: FC<Props> = ({ team }) => {
       {team.eligible && (
        <div className='flex flex-col gap-4 p-4 pt-8'>
        <h3>Eligibility</h3>
-       <div className='flex flex-wrap space-x-4'>
+       {/* <div className='flex flex-wrap space-x-4'>
          {team.eligible.map((test, index) => (
            <h4 key={index} className={`whitespace-nowrap ${index !== team.eligible.length - 1 ? 'border-r border-black pr-2' : ''}`}>{test}</h4>
          ))}
-       </div>
+       </div> */}
      </div>
       )}
     </div>

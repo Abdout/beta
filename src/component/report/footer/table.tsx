@@ -44,7 +44,7 @@ const Footer: React.FC<IFooterProps> = ({ triggerUpdate, customer, consultant}) 
   };
 
   const fixedColumn = ['Company', 'Name', 'Signature'];
-  const fields = ['contractor', 'customer', 'consultant'];
+  const fields: (keyof FooterData)[] = ['contractor', 'customer', 'consultant'];
 
   return (
     <>
@@ -69,7 +69,7 @@ const Footer: React.FC<IFooterProps> = ({ triggerUpdate, customer, consultant}) 
                     <strong
                       contentEditable
                       suppressContentEditableWarning
-                      onBlur={(e) => handleFieldChange(field as keyof FooterData, e.target.textContent || '')}
+                      onBlur={(e) => handleFieldChange(field, e.target.textContent || '')}
                       style={{ outline: 'none' }}
                       onClick={(e) => {
                         e.preventDefault();
@@ -77,7 +77,7 @@ const Footer: React.FC<IFooterProps> = ({ triggerUpdate, customer, consultant}) 
                       }}
                       onContextMenu={(e) => e.stopPropagation()}
                     >
-                      {footer ? (item === 'Company' ? footer[field] : footer[field + item]) : 'Loading...'}
+                      {footer ? (item === 'Company' ? footer[field] : footer[field + item as keyof FooterData]) : 'Loading...'}
                     </strong>
                     )}
                   </td>

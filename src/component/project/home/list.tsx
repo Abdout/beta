@@ -3,7 +3,6 @@ import { useProject } from "@/provider/project";
 import React from "react";
 import Delete from "./crud/delete";
 import Modal from "@/component/atom/modal/modal";
-import Edit from "./crud/edit";
 import Create from "./crud/create";
 import Link from "next/link";
 import { useModal } from "@/provider/modal";
@@ -31,11 +30,7 @@ const ProjectList: React.FC = () => {
         (modal.id !== null && projectToEdit ? (
           <Modal
             content={
-              <Edit
-                id={modal.id}
-                customer={projectToEdit.customer}
-                description={projectToEdit.description}
-              />
+              <Create />
             }
           />
         ) : (
@@ -49,7 +44,7 @@ const ProjectList: React.FC = () => {
           <Link href={`/project/${t._id}`}>
             <div>
               <h1>{t.customer}</h1>
-              <h3>{t.description ? t.description : <span className="opacity-50">Location</span>}</h3>
+              <h3>{t.location ? t.location : <span className="opacity-50">Location</span>}</h3>
               <h4>Osman</h4>
               <div className="flex gap-2 items-center">
                 <div className="rounded-full bg-green-600 w-[13px] h-[13px]"></div>
@@ -59,20 +54,13 @@ const ProjectList: React.FC = () => {
           </Link>
 
           <div className="flex gap-2 mt-4">
-            <Delete id={t._id} />
+            <Delete id={t._id || ''} />
             <button 
              className="opacity-80 hover:opacity-100"
-             onClick={() => handleEdit(t._id)}>
+             onClick={() => handleEdit(t._id || '')}>
               <Icon icon="iconoir:edit" width={30}/>
             </button>
           </div>
-          {openModal === t._id && (
-            <Modal
-              content={
-                <Edit id={t._id} customer={t.customer} description={t.description} />
-              }
-            />
-          )}
         </div>
       ))}
 

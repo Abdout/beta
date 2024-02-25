@@ -1,6 +1,5 @@
 'use client';
 import { FC, useState } from "react";
-import XlIcon from "../atom/icon/xl";
 import TextIcon from "../atom/icon/text";
 import { docs } from "@/constant/car";
 import Image from "next/image";
@@ -25,6 +24,7 @@ interface Props {
   car: CarDetial;
 }
 
+
 const Profile: FC<Props> = ({ car }) => {
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
@@ -44,22 +44,11 @@ const Profile: FC<Props> = ({ car }) => {
     {docs.map((data, index) => (
       <div className="relative" onClick={() => setSelectedItem(selectedItem === index ? null : index)} key={index}>
         <div className={`p-1 ${selectedItem === index ? 'bg-black text-[#fcfcfc]' : ''}`}>
-          <TextIcon icon={data.icon} label={data.label} color={selectedItem === index ? '[#fcfcfc]' : (index === 2 ? 'yellow' : 'black')} />
+          <TextIcon icon={data.icon} label={data.label}  />
         </div>
         </div>
     ))}
   </div>
-      {/* <h1>{car.id}</h1>
-      <h1>{car.sim}</h1>
-      <h1>{car.petrol}</h1>
-      <h1>{car.oil}</h1>
-      <h1>{car.history}</h1>
-      <h1>{car.status}</h1>
-      <h1>{car.under}</h1>
-      <h1>{car.km}</h1>
-      <h1>{car.width}</h1>
-      <h1>{car.licence}</h1>
-      <h1>{car.penalty}</h1> */}
     </div>
     
   );

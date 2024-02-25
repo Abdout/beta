@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from "react";
+import { FC,  useState } from "react";
 import { useModal } from "@/provider/modal";
 import Task from "../step/task";
 import Team from "../step/team";

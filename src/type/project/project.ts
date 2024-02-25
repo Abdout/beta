@@ -30,6 +30,7 @@ export interface Option {
   }
   
   export interface Project {
+    _id?: string;
     customer: string;
     location: string;
     consultant: string;

@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import Header from "./header";
 import Table from "./table";
 import { Accept, Document } from "@/constant/project/itp/table";
-import VarTable from "./subactivity";
 import { HeadTitle } from "@/constant/project/itp/head";
 import SubActivity from "./subactivity";
 

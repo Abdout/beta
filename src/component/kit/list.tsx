@@ -8,7 +8,7 @@ import Car from './kit';
 
 const KitList = () => {
   const { modal } = useModal();
-  const extend = kit.find(kit => kit.id === modal.id);
+  const extend = kit.find(kit => kit.id.toString() === modal.id);
   return (
     <>
     {modal.open && extend && (
@@ -17,7 +17,7 @@ const KitList = () => {
     <div className="p-4 grid grid-cols-5  gap-y-28">
       {kit.map((kit, index) => (
         <div className="mb-10 h-40 w-40" key={index}>
-          <Car src={kit.src} alt={kit.alt} width={kit.width}  id={kit.id} bg={kit.bg}/>
+          <Car src={kit.src} alt={kit.alt} width={kit.width}  id={kit.id.toString()} bg={kit.bg}/>
         </div>
       ))}
     </div>
@@ -25,5 +25,4 @@ const KitList = () => {
   );
 };
 
-  
 export default KitList;

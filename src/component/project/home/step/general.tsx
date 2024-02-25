@@ -6,16 +6,12 @@ import Input from "../../../atom/input/input";
 interface GeneralStepProps {
   customer: string;
   setCustomer: (value: string) => void;
-  description: string;
-  setDescription: (value: string) => void;
   location: string;
   setLocation: (value: string) => void;
   consultant: string;
   setConsultant: (value: string) => void;
   client: string;
   setClient: (value: string) => void;
-  status: string;
-  setStatus: (value: string) => void;
 }
 
 const General: React.FC<GeneralStepProps> = ({
@@ -27,7 +23,6 @@ const General: React.FC<GeneralStepProps> = ({
   setConsultant,
   client,
   setClient,
-
 }) => {
   return (
     <div className="flex flex-col items-center gap-4">
@@ -36,7 +31,6 @@ const General: React.FC<GeneralStepProps> = ({
       <Input value={location} onChange={setLocation} placeholder="Location" />
       <Input value={consultant} onChange={setConsultant} placeholder="Consultant" />
       <Input value={client} onChange={setClient} placeholder="Client" />
-      
     </div>
   );
 };
