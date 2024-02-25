@@ -16,11 +16,11 @@ const MOS = ({ params }: { params: Params }) => {
     fetchProject(params.id);
   }, [params.id, fetchProject]);
   const { toPDF, targetRef } = usePDF({
-    filename: `${project?.title} ITP.pdf`,
+    filename: `${project?.customer} ITP.pdf`,
   });
   return (
     <div>
-      <Action projectTitle={project?.title || ""} toPDF={toPDF} />
+      <Action projectTitle={project?.customer || ""} toPDF={toPDF} />
       
       <Intro />
       <ActivityWrapper params={params} />
