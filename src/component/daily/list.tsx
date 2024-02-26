@@ -39,7 +39,7 @@ const DailyList: React.FC = () => {
     setSelectedRow(null);
   };
 
-  const Delete = async (id) => {
+  const Delete = async (id: string) => {
     const confirmed = window.confirm("Are you sure?");
 
     if (confirmed) {
@@ -153,13 +153,13 @@ const DailyList: React.FC = () => {
            <Icon icon="ant-design:delete-outlined" width={30}/>
            <h3>Delete</h3>
           </button>
-          <button 
+          {/* <button 
           onClick={() => handleEdit(contextMenu.taskID)}
           className="flex gap-4 opacity-80 hover:opacity-100"
           >
             <Icon icon="iconoir:edit" width={30}/>
             <h3>Edit</h3>
-          </button>
+          </button> */}
         </div>
       )}
       
