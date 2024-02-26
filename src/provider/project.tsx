@@ -17,14 +17,14 @@ export const ProjectProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [projects, setProjects] = useState<Project[]>([]);
 
   const fetchProject = async (id: string) => {
-    const response = await fetch(`http://localhost:3000/api/project/${id}`);
+    const response = await fetch(`https://beta-self.vercel.app/api/project/${id}`);
     const data = await response.json();
     setProject(data.project);
   };
 
   const fetchProjects = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/project");
+      const res = await fetch("http://beta-self.vercel.app/api/project");
       const data = await res.json();
       setProjects(data.projects);
     } catch (error) {
