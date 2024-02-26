@@ -30,7 +30,7 @@ export const KitProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const fetchKit = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/report/kit", {
+      const res = await fetch("http://beta-self.vercel.app/api/report/kit", {
         cache: "no-store",
       });
 
