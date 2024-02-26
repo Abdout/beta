@@ -36,7 +36,7 @@ export const FooterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const fetchFooter = async () => {
     try {
-      const res = await fetch("http://beta-self.vercel.app/api/report/footer", {
+      const res = await fetch("https://beta-self.vercel.app/api/report/footer", {
         cache: "no-store",
       });
 
@@ -58,7 +58,7 @@ export const FooterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   const updateFooter = async (updatedFooter: FooterData) => {
-    const res = await fetch("http://beta-self.vercel.app/api/report/footer", {
+    const res = await fetch("https://beta-self.vercel.app/api/report/footer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

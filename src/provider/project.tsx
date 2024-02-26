@@ -24,7 +24,7 @@ export const ProjectProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const fetchProjects = async () => {
     try {
-      const res = await fetch("http://beta-self.vercel.app/api/project");
+      const res = await fetch("https://beta-self.vercel.app/api/project");
       const data = await res.json();
       setProjects(data.projects);
     } catch (error) {

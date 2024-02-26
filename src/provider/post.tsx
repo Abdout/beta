@@ -19,7 +19,7 @@ export const PostProjectProvider: React.FC<{ children: React.ReactNode }> = ({ c
   
 
   const postTask = async (taskData: any) => {
-    const res = await fetch("http://beta-self.vercel.app/api/task", {
+    const res = await fetch("https://beta-self.vercel.app/api/task", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -45,7 +45,7 @@ export const PostProjectProvider: React.FC<{ children: React.ReactNode }> = ({ c
   }) => {
     setPostProjectState({ status: 'loading', error: null });
     try {
-      const res = await fetch("http://beta-self.vercel.app/api/project", {
+      const res = await fetch("https://beta-self.vercel.app/api/project", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
