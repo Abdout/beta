@@ -18,7 +18,7 @@ import PrevNextButtons from "../step/next";
 
 const Create: FC = () => {
   const { fetchProjects } = useProject();
-  const { closeModal } = useModal ();
+  const { closeModal } = useModal();
   const { postProject, postProjectState } = usePostProject();
   const { customer, setCustomer, location, setLocation, consultant, setConsultant, client, setClient, voltages, setVoltages, lvOptions, setLvOptions, mvOptions, setMvOptions, hvOptions, setHvOptions, evOptions, setEvOptions, lvSwgr, setLvSwgr, lvTrafo, setLvTrafo, lvRmu, setLvRmu, lvCable, setLvCable, mvSwgr, setMvSwgr, mvTrafo, setMvTrafo, mvRmu, setMvRmu, mvCable, setMvCable, hvSwgr, setHvSwgr, hvTrafo, setHvTrafo, hvRmu, setHvRmu, hvCable, setHvCable, evSwgr, setEvSwgr, evTrafo, setEvTrafo, evRmu, setEvRmu, evCable, setEvCable } = useCreate();
   const [currentStep, setCurrentStep] = useState(1);
@@ -30,10 +30,10 @@ const Create: FC = () => {
       fetchProjects();
     }
   }, [postProjectState.status]);
-  
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-  
+
     const projectData = {
       customer,
       location,
@@ -45,7 +45,7 @@ const Create: FC = () => {
       hvOptions: { hvSwgr, hvTrafo, hvCable, hvRmu },
       evOptions: { evSwgr, evTrafo, evCable, evRmu }
     };
-  
+
     await postProject(projectData);
   };
 
@@ -53,24 +53,24 @@ const Create: FC = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-between h-full px-4 pb-4">
-    <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4 h-full">
-      <div className="flex justify-center items-center h-full">
+      <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4 h-full">
+        <div className="flex justify-center items-center h-full">
 
-      <PrevNextButtons
-          currentStep={currentStep} // Pass the current step
-          totalSteps={step.length} // Pass the total number of steps
-          prevStep={prevStep} // Pass the function to go to the previous step
-          nextStep={nextStep} // Pass the function to go to the next step
-        />
-      
-        
+          <PrevNextButtons
+            currentStep={currentStep} // Pass the current step
+            totalSteps={step.length} // Pass the total number of steps
+            prevStep={prevStep} // Pass the function to go to the previous step
+            nextStep={nextStep} // Pass the function to go to the next step
+          />
+
+
 
           {currentStep === 1 && (
             <div>
-             <General 
-                customer={customer} 
-                setCustomer={setCustomer} 
-                location={location} 
+              <General
+                customer={customer}
+                setCustomer={setCustomer}
+                location={location}
                 setLocation={setLocation}
                 consultant={consultant}
                 setConsultant={setConsultant}
@@ -82,78 +82,78 @@ const Create: FC = () => {
 
           {currentStep === 2 && (
             <ItemStep
-            voltages={voltages}
-            setVoltages={setVoltages}
-            lv={lv}
-            setLvOptions={setLvOptions}
-            mv={mv}
-            setMvOptions={setMvOptions}
-            hv={hv}
-            setHvOptions={setHvOptions}
-            ev={ev}
-            setEvOptions={setEvOptions}
-          />
+              voltages={voltages}
+              setVoltages={setVoltages}
+              lv={lv}
+              setLvOptions={setLvOptions}
+              mv={mv}
+              setMvOptions={setMvOptions}
+              hv={hv}
+              setHvOptions={setHvOptions}
+              ev={ev}
+              setEvOptions={setEvOptions}
+            />
           )}
 
           {step[currentStep - 3] === "LV" && (
             <LvStep
-            lvOptions={lvOptions}
-            LvSwgr={LvSwgr}
-            setLvSwgr={setLvSwgr}
-            LvTrafo={LvTrafo}
-            setLvTrafo={setLvTrafo}
-            LvCable={LvCable}
-            setLvCable={setLvCable}
-            LvRmu={LvRmu}
-            setLvRmu={setLvRmu}
-          />
+              lvOptions={lvOptions}
+              LvSwgr={LvSwgr}
+              setLvSwgr={setLvSwgr}
+              LvTrafo={LvTrafo}
+              setLvTrafo={setLvTrafo}
+              LvCable={LvCable}
+              setLvCable={setLvCable}
+              LvRmu={LvRmu}
+              setLvRmu={setLvRmu}
+            />
           )}
 
           {step[currentStep - 3] === "MV" && (
             <MvStep
-            mvOptions={mvOptions}
-            setMvSwgr={setMvSwgr}
-            setMvTrafo={setMvTrafo}
-            setMvCable={setMvCable}
-            setMvRmu={setMvRmu}
-          />
+              mvOptions={mvOptions}
+              setMvSwgr={setMvSwgr}
+              setMvTrafo={setMvTrafo}
+              setMvCable={setMvCable}
+              setMvRmu={setMvRmu}
+            />
           )}
 
           {step[currentStep - 3] === "HV" && (
             <HvStep
-            hvOptions={hvOptions}
-            HvSwgr={HvSwgr}
-            setHvSwgr={setHvSwgr}
-            HvTrafo={HvTrafo}
-            setHvTrafo={setHvTrafo}
-            HvCable={HvCable}
-            setHvCable={setHvCable}
-            HvRmu={HvRmu}
-            setHvRmu={setHvRmu}
-          />
+              hvOptions={hvOptions}
+              HvSwgr={HvSwgr}
+              setHvSwgr={setHvSwgr}
+              HvTrafo={HvTrafo}
+              setHvTrafo={setHvTrafo}
+              HvCable={HvCable}
+              setHvCable={setHvCable}
+              HvRmu={HvRmu}
+              setHvRmu={setHvRmu}
+            />
           )}
 
           {step[currentStep - 3] === "EV" && (
             <EvStep
-            evOptions={evOptions}
-            EvSwgr={EvSwgr}
-            setEvSwgr={setEvSwgr}
-            EvTrafo={EvTrafo}
-            setEvTrafo={setEvTrafo}
-            EvCable={EvCable}
-            setEvCable={setEvCable}
-            EvRmu={EvRmu}
-            setEvRmu={setEvRmu}
-          />
+              evOptions={evOptions}
+              EvSwgr={EvSwgr}
+              setEvSwgr={setEvSwgr}
+              EvTrafo={EvTrafo}
+              setEvTrafo={setEvTrafo}
+              EvCable={EvCable}
+              setEvCable={setEvCable}
+              EvRmu={EvRmu}
+              setEvRmu={setEvRmu}
+            />
           )}
-          
-      </div>
+
+        </div>
         <div className="flex justify-between items-center h-full">
           {/* ... */}
         </div>
         <div className="flex flex-col items-center space-y-4">
-        <Indicator totalSteps={totalSteps} currentStep={currentStep} />
-          <Submit label="Create Project"/>
+          <Indicator totalSteps={totalSteps} currentStep={currentStep} />
+          <Submit label="Create Project" />
         </div>
       </form>
     </div>

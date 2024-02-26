@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface KitData {
-  kit: string;
+  equipment: string;
   serial: string;
   date: string;
 }
