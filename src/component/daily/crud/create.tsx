@@ -39,7 +39,7 @@ const Create: FC = () => {
     e.preventDefault();
   
     try {
-      const res = await fetch("http://localhost:3000/api/task", {
+      const res = await fetch("https://beta-self.vercel.app/api/task", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

@@ -7,13 +7,14 @@ import XlIcon from "../atom/icon/xl";
 interface TeamDetial {
   src: string;
   alt: string;
-  phone: number;
-  mail: string;
-  location: string;
+  phone?: string;
+  mail?: string;
+  location?: string;
   width: number;
-  id: string;
+  height?: number;
+  id?: string;
   iqama?: string;
-  eligible?: string[];
+  eligible?: string[]; // eligible is now optional
 }
 
 interface Props {

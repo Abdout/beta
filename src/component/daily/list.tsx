@@ -8,15 +8,15 @@ import Modal from "@/component/atom/modal/modal";
 import Create from "./crud/create";
 import { useModal } from "@/provider/modal";
 import { Icon } from "@iconify/react";
-// import { Task } from '@/type/task/task';  // Import the Task type
-// import Circle from "./circle";
-// import Image from "next/image";
-// import { Delete } from "./crud/delete";
-// import SmIcon from "../atom/icon/sm";
+import { Task } from '@/type/task/task';  // Import the Task type
+import Circle from "./circle";
+import Image from "next/image";
+import { Delete } from "./crud/delete";
+import SmIcon from "../atom/icon/sm";
 import { useProject } from "@/provider/project";
 
 
-const TimeList: React.FC = () => {
+const DailyList: React.FC = () => {
   const { modal, openModal } = useModal();
   const { refreshTasks, tasks } = useTask();
   const { projects } = useProject();
@@ -24,6 +24,7 @@ const TimeList: React.FC = () => {
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, taskID: string | null }>({ x: 0, y: 0, taskID: null });
   const [selectedRow, setSelectedRow] = useState<string | null>(null);
 
+  
   const handleRightClick = (e: React.MouseEvent, taskID: string) => {
     e.preventDefault();
     setContextMenu({ x: e.clientX, y: e.clientY, taskID });
@@ -71,33 +72,52 @@ const TimeList: React.FC = () => {
   return (
     <>
   {modal.open && modal.id === null && <Modal content={<Create />} />}
-  {/* <div className="flex justify-end">
+  <div className="flex justify-end">
     <button
       className="p-2 m-2 border rounded hover:border-black opacity-70 hover:opacity-100"
       onClick={() => openModal(null)}
     >
       <Icon icon="ph:plus-thin" width={30}/>
     </button>
-  </div> */}
+  </div>
   
   
-  <table className="table-auto w-[60rem] m-8 ">
+  <table className="table-fixed">
     <thead>
       <tr>
+        <td className="text-lg font-medium border-b border-black py-2">Team</td>
+        <td className="text-lg font-medium border-b border-black py-2">Project</td>
+        <td className="text-lg font-medium border-b border-black py-2">Task</td>
         <td className="text-lg font-medium border-b border-black py-2">Date</td>
         <td className="text-lg font-medium border-b border-black py-2">Location</td>
-        <td className="text-lg font-medium border-b border-black py-2">Project</td>
-        <td className="text-lg font-medium border-b border-black py-2">Customer</td>
-        <td className="text-lg font-medium border-b border-black py-2">Hour</td>
-        <td className="text-lg font-medium border-b border-black py-2">Over</td>
-        <td className="text-lg font-medium border-b border-black py-2">Remark</td>
+        <td className="text-lg font-medium border-b border-black py-2">Progress</td>
+        <td className="text-lg font-medium border-b border-black py-2">Time</td>
       </tr>
     </thead>
     <tbody>
       {tasks.map((task) => {
         const formattedEstTime = task.estTime ? task.estTime.toString().padStart(2, '0') + ' hr' : 'N/A'; // format estTime when displaying it
         return (
-          <tr key={task._id || ''} className={`border-b ${task._id === selectedRow ? 'bg-black text-[#fcfcfc]' : ''} hover:bg-gray-100`} onContextMenu={(e) => handleRightClick(e, task._id || '')}>
+            <tr key={task._id} className={`border-b ${task._id === selectedRow ? 'bg-black text-[#fcfcfc]' : ''} hover:bg-gray-100`} onContextMenu={(e) => handleRightClick(e, task._id || '')}>
+            <td className="flex mt-[10px]">
+              {task.team.length === 1 && task.team[0] === '/team/eng/user.svg' ? (
+                <div className="mx-1">
+                  <Image
+                    className="rounded-full border " 
+                    src="/team/eng/user.svg" alt="default" width={35} height={35} />
+                </div>
+              ) : (
+                task.team.map((image, index) => (
+                  <div key={index} className="mx-1">
+                    <Image
+                      className="rounded-full border " 
+                      src={image} alt={`team-${index}`} width={35} height={35} />
+                  </div>
+                ))
+              )}
+            </td>
+            <td className="py-4">{task.project}</td>
+            <td className="py-4">{task.title}</td>
             <td className="py-4">{new Date(task.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}</td>
             <td className="py-4">
               <div className="w-24 overflow-hidden overflow-ellipsis whitespacenowrap">
@@ -106,9 +126,8 @@ const TimeList: React.FC = () => {
                 </a>
               </div>
             </td>
-            <td className="py-4">{task.project}</td>
-            <td className="py-4">{task.title}</td>
-            <td className="py-4">{formattedEstTime}</td>
+            
+            <td className="py-4"><Circle value={task.status} /><span className="ml-2">{task.status}</span></td>
             <td className="py-4">{formattedEstTime}</td>
             <td>
               {/* <Delete id={task._id} />
@@ -136,7 +155,7 @@ const TimeList: React.FC = () => {
            <h3>Delete</h3>
           </button>
           <button 
-        //   onClick={() => handleEdit(contextMenu.taskID)}
+          // onClick={() => handleEdit(contextMenu.taskID)}
           className="flex gap-4 opacity-80 hover:opacity-100"
           >
             <Icon icon="iconoir:edit" width={30}/>
@@ -151,4 +170,4 @@ const TimeList: React.FC = () => {
   );
 };
 
-export default TimeList;
+export default DailyList;
