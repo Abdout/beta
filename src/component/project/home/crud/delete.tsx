@@ -13,7 +13,7 @@ const Delete: FC<DeleteProps> = ({ id }) => {
     const confirmed = window.confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`http://localhost:3000/api/project?id=${id}`, {
+      const res = await fetch(`https://beta-self.vercel.app/api/project?id=${id}`, {
         method: "DELETE",
       });
 

@@ -40,7 +40,7 @@ const TaskList: React.FC = () => {
     const confirmed = window.confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`http://localhost:3000/api/task?id=${id}`, {
+      const res = await fetch(`https://beta-self.vercel.app/api/task?id=${id}`, {
         method: "DELETE",
       });
 
@@ -138,7 +138,8 @@ const TaskList: React.FC = () => {
               {/* <Delete id={task._id} />
               <button 
                className="w-[25px] h-[25px]"
-               onClick={() => handleEdit(task._id)}>
+              //  onClick={() => handleEdit(task._id)}
+               >
                 <SmIcon src="/edit.png" alt="Edit" path="" />
               </button> */}
             </td>
@@ -159,13 +160,13 @@ const TaskList: React.FC = () => {
            <Icon icon="ant-design:delete-outlined" width={30}/>
            <h3>Delete</h3>
           </button>
-          {/* <button 
-          onClick={() => handleEdit(contextMenu.taskID)}
+          <button 
+          // onClick={() => handleEdit(contextMenu.taskID)}
           className="flex gap-4 opacity-80 hover:opacity-100"
           >
             <Icon icon="iconoir:edit" width={30}/>
             <h3>Edit</h3>
-          </button> */}
+          </button>
         </div>
       )}
       

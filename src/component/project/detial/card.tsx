@@ -3,7 +3,7 @@ import MdIcon from '@/component/atom/icon/md'
 import { Icon } from "@iconify/react";
 
 const Card = (props:{
-    head: string,
+    head?: string,
     photo: string,
     name: string,
     rank: string,
