@@ -45,10 +45,10 @@ const Activity: React.FC<IndexProps> = ({ params, option, index }) => {
   return (
     <div className="flex flex-col">
       {labels.map((label, labelIndex) => (
-        <h1
+        <h2
           key={labelIndex}>
           {`${index + labelIndex}. ${label}`}
-        </h1>
+        </h2>
       ))}
       <SubActivity params={params} option={option} index={index} />
     </div>

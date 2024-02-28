@@ -20,7 +20,7 @@ const MOS = ({ params }: { params: Params }) => {
     filename: `${project?.customer} ITP.pdf`,
   });
   return (
-    <div>
+    <div className='flex flex-col gap-6 w-[60rem]'>
       <Action projectTitle={project?.customer || ""} toPDF={toPDF} />
       <Intro />
       <ActivityWrapper params={params} />
