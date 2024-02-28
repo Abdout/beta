@@ -1,10 +1,11 @@
 'use client';
-import ActivityWrapper from '@/component/project/mos/warpper';
+
 import Intro from '@/component/project/mos/intro'
 import React, { useEffect } from 'react'
 import Action from '@/component/project/layout/action';
 import { useProject } from '@/provider/project';
 import { usePDF } from 'react-to-pdf';
+import ActivityWrapper from '@/component/project/mos/warpper';
 
 interface Params {
   id: string;
