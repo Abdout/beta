@@ -59,16 +59,16 @@ const Profile: FC<Props> = ({ team }) => {
   </div>
         </div>
       )}
-      {team.eligible && (
-       <div className='flex flex-col gap-4 p-4 pt-8'>
-       <h3>Eligibility</h3>
-       {/* <div className='flex flex-wrap space-x-4'>
-         {team.eligible.map((test, index) => (
-           <h4 key={index} className={`whitespace-nowrap ${index !== team.eligible.length - 1 ? 'border-r border-black pr-2' : ''}`}>{test}</h4>
-         ))}
-       </div> */}
-     </div>
-      )}
+        {team.eligible && (
+         <div className='flex flex-col gap-4 p-4 pt-8'>
+         <h3>Eligibility</h3>
+         <div className='flex flex-wrap space-x-4'>
+           {team.eligible?.map((test, index) => (
+             <h4 key={index} className={`whitespace-nowrap ${index !== (team.eligible?.length ?? 0) - 1 ? 'border-r border-black pr-2' : ''}`}>{test}</h4>
+           ))}
+         </div>
+       </div>
+        )}
     </div>
   );
 };
