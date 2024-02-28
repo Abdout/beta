@@ -76,6 +76,10 @@ const SubActivity: React.FC<IndexProps> = ({ params, option, index }) => {
   
   const labels = selectedOptions.map((item, itemIndex) => {
     const Body = body[option][item.label];
+      if (!Body) {
+        console.error(`Body component not found for option: ${option}, label: ${item.label}`);
+        return null;
+      }
     return (
       <div className="ml-[26px]" key={itemIndex}>
         <h2 className="text-blue-800">
