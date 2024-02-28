@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from './layout'
 import ProcedureLayout from '../procedure/layout'
 
-const ACB = () => {
+const CB = () => {
   return (
     <div className='flex flex-col items-start gap-4'>
       <Layout
@@ -31,4 +31,4 @@ const ACB = () => {
   )
 }
 
-export default ACB
+export default CB

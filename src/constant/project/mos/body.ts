@@ -1,4 +1,4 @@
-import ACB from "@/component/project/mos/body/acb";
+import CB from "@/component/project/mos/body/cb";
 import CRM from "@/component/project/mos/body/crm";
 import CT from "@/component/project/mos/body/ct";
 import HiPot from "@/component/project/mos/body/hipot";
@@ -16,7 +16,7 @@ export type OptionKey = 'evSwgr' | 'evTrafo' | 'evCable' | 'evRmu' | 'hvSwgr' | 
 
 export const body: Record<OptionKey, Record<string, React.ComponentType>> = {
   'evSwgr': {
-    'ACB': ACB,
+    'ACB': CB,
     'Relay': Relay,
     'CT': CT,
     'PT': PT,
@@ -37,7 +37,7 @@ export const body: Record<OptionKey, Record<string, React.ComponentType>> = {
     'Relay': Relay,
   },
   'hvSwgr': {
-    'ACB': ACB,
+    'CB': CB,
     'Relay': Relay,
     'CT': CT,
     'PT': PT,
@@ -58,7 +58,7 @@ export const body: Record<OptionKey, Record<string, React.ComponentType>> = {
     'Relay': Relay,
   },
   'mvSwgr': {
-    'ACB': ACB,
+    'CB': CB,
     'Relay': Relay,
     'CT': CT,
     'PT': PT,
@@ -79,7 +79,7 @@ export const body: Record<OptionKey, Record<string, React.ComponentType>> = {
     'Relay': Relay,
   },
   'lvSwgr': {
-    'ACB': ACB,
+    'ACB': CB,
     'Relay': Relay,
     'CT': CT,
     'PT': PT,
