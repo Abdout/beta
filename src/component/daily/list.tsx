@@ -14,6 +14,7 @@ import Image from "next/image";
 import { Delete } from "./crud/delete";
 import SmIcon from "../atom/icon/sm";
 import { useProject } from "@/provider/project";
+import { api } from "@/constant/api";
 
 
 const DailyList: React.FC = () => {
@@ -44,7 +45,7 @@ const DailyList: React.FC = () => {
     const confirmed = window.confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`https://beta-self.vercel.app/api/task?id=${id}`, {
+      const res = await fetch(`${api}/task?id=${id}`, {
         method: "DELETE",
       });
 

@@ -1,5 +1,6 @@
 // HeaderContext.tsx
 'use client';
+import { api } from '@/constant/api';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface HeaderData {
@@ -36,7 +37,7 @@ export const HeaderProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const fetchHeader = async () => {
     try {
-      const res = await fetch("https://beta-self.vercel.app/api/report/header", {
+      const res = await fetch(`${api}/report/header`, {
         cache: "no-store",
       });
 
@@ -58,7 +59,7 @@ export const HeaderProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   const updateHeader = async (updatedHeader: HeaderData) => {
-    const res = await fetch("https://beta-self.vercel.app/api/report/header", {
+    const res = await fetch(`${api}/report/header`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

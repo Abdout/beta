@@ -1,5 +1,6 @@
 // KitContext.tsx
 'use client';
+import { api } from '@/constant/api';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface KitData {
@@ -30,7 +31,7 @@ export const KitProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const fetchKit = async () => {
     try {
-      const res = await fetch("https://beta-self.vercel.app/api/report/kit", {
+      const res = await fetch(`${api}/report/kit`, {
         cache: "no-store",
       });
 
@@ -52,7 +53,7 @@ export const KitProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const updateKit = async (updatedKit: KitData) => {
-    const res = await fetch("http://localhost:3000/api/report/kit", {
+    const res = await fetch(`${api}/report/kit`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

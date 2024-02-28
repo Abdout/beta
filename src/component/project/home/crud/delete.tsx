@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useProject } from "@/provider/project";
 import { Icon } from "@iconify/react";
+import { api } from "@/constant/api";
 
 interface DeleteProps {
   id: string | undefined;
@@ -13,7 +14,7 @@ const Delete: FC<DeleteProps> = ({ id }) => {
     const confirmed = window.confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`https://beta-self.vercel.app/api/project?id=${id}`, {
+      const res = await fetch(`${api}/project?id=${id}`, {
         method: "DELETE",
       });
 
