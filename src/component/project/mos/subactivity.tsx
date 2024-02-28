@@ -77,17 +77,13 @@ const SubActivity: React.FC<IndexProps> = ({ params, option, index }) => {
   const labels = selectedOptions.map((item, itemIndex) => {
     const Body = body[option][item.label];
     return (
-      <div className="ml-[26px]">
-      <h2
-       className="text-blue-800"
-       key={itemIndex}>
-        {`${index}.${itemIndex + 1}. ${Abb[item.label]}`}
-      </h2>
-      <div className="ml-[26px]">
-        <Body />
-
-      </div>
-      
+      <div className="ml-[26px]" key={itemIndex}>
+        <h2 className="text-blue-800">
+          {`${index}.${itemIndex + 1}. ${Abb[item.label]}`}
+        </h2>
+        <div className="ml-[26px]">
+          <Body />
+        </div>
       </div>
     );
   });
