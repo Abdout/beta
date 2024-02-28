@@ -2,6 +2,7 @@
 import Action from "@/component/project/layout/action";
 import { useEffect, useState } from "react";
 import Info from "@/component/project/detial/info";
+import { api } from "@/constant/api";
 
 
 
@@ -23,7 +24,7 @@ const Detail = ({ params }: { params: Params }) => {
 
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:3000/api/project/${id}`)
+      fetch(`${api}/project/${id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
