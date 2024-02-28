@@ -21,10 +21,8 @@ const MOS = ({ params }: { params: Params }) => {
   return (
     <div>
       <Action projectTitle={project?.customer || ""} toPDF={toPDF} />
-      
       <Intro />
       <ActivityWrapper params={params} />
-      
     </div>
   )
 }

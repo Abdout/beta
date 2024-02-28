@@ -108,7 +108,7 @@ const TaskList: React.FC = () => {
             <td className="py-4">{task.title}</td>
             <td className="py-4">{new Date(task.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}</td>
             <td className="py-4">
-              <div className="w-24 overflow-hidden overflow-ellipsis whitespacenowrap">
+              <div className="w-24 overflow-hidden overflow-ellipsis whitespace-nowrap">
                 <a href={task.location} target="_blank" rel="noopener noreferrer">
                   {task.location}
                 </a>

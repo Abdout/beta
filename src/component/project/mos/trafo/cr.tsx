@@ -32,7 +32,7 @@ const CR: React.FC<IndexProps> = ({ params }) => {
     <div>
       <h1>Contact Resistance</h1>
       <p>
-      Contact resistance is the resistance encountered at the point of contact between two conductive elements. It is a critical factor in many electronic devices and power systems. High contact resistance can lead to energy loss, overheating, and failure of the circuit. Therefore, it&apos;s important to minimize contact resistance to ensure efficient operation.
+      Contact resistance is the resistance encountered at the point of contact between two conductive elements. It is a critical factor in many electronic devices and power systems. High contact resistance can lead to energy loss, overheating, and failure of the circuit. Therefore, it's important to minimize contact resistance to ensure efficient operation.
     </p>
       
     </div>
