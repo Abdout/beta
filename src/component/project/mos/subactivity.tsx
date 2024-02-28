@@ -81,11 +81,11 @@ const SubActivity: React.FC<IndexProps> = ({ params, option, index }) => {
         return null;
       }
     return (
-      <div className="ml-[26px]" key={itemIndex}>
-        <h2 className="text-blue-800">
+      <div className="mt-2" key={itemIndex}>
+        <h2>
           {`${index}.${itemIndex + 1}. ${Abb[item.label]}`}
         </h2>
-        <div className="ml-[26px]">
+        <div className="mt-2">
           <Body />
         </div>
       </div>

@@ -45,7 +45,7 @@ const Activity: React.FC<IndexProps> = ({ params, option, index }) => {
   return (
     <div className="flex flex-col">
       {labels.map((label, labelIndex) => (
-        <h1 className="text-blue-800"
+        <h1
           key={labelIndex}>
           {`${index + labelIndex}. ${label}`}
         </h1>
