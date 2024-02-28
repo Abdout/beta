@@ -2,6 +2,7 @@
 import { FC, useState } from "react";
 import XlIcon from "../atom/icon/xl";
 import { docs } from "@/constant/kit";
+import TextIcon from "../atom/icon/text";
 
 
 interface KitDetial {
@@ -40,15 +41,15 @@ const Profile: FC<Props> = ({ kit }) => {
               <h5>{kit.status}</h5>
             </div>
           </div>
-          <div className="grid grid-cols-4 gap-4 items-center">
-    {docs.map((data, index) => (
-      <div className="relative" onClick={() => setSelectedItem(selectedItem === index ? null : index)} key={index}>
-        <div className={`p-1 ${selectedItem === index ? 'bg-black text-[#fcfcfc]' : ''}`}>
-        {/* <TextIcon icon={data?.icon} label={data?.label} color={selectedItem === index ? '[#fcfcfc]' : (index === 2 ? 'yellow' : 'black')} /> */}
-        </div>
-        </div>
-    ))}
-  </div>
+                  <div className="grid grid-cols-4 gap-4 items-center">
+              {docs.map((data, index) => (
+              <div className="relative" onClick={() => setSelectedItem(selectedItem === index ? null : index)} key={index}>
+                <div className={`p-1 ${selectedItem === index ? 'bg-black text-[#fcfcfc]' : ''}`}>
+                  {data && <TextIcon icon={data.icon} label={data.label}  />}
+                </div>
+              </div>
+            ))}
+          </div>
     
     </div>
     
