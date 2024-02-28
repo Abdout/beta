@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import Pargraph from '../body/pargaph'
 
 const ProcedureLayout = (props: {
     desc: string,
@@ -6,12 +7,10 @@ const ProcedureLayout = (props: {
     circuit: ReactNode,
 }) => {
   return (
-    <div>
+    <div className='flex flex-col space-y-2'>
         <p>{props.desc}</p>
-        <h2>I. Equipment used</h2>
-        {props.equipment}
-        <h2>II. Circuit connection</h2>
-        {props.circuit}
+        <Pargraph title='I. Equipment used' desc={props.equipment} sub={true}/>
+        <Pargraph title='II. Circuit connection' desc={props.circuit} sub={true}/>
     </div>
   )
 }
