@@ -6,7 +6,7 @@ const Pargraph = (props: {
  }) => {
   return (
     <div className="flex-col">
-      <h2 className="bg-yellow-400 px-2 py-[2px] inline-block">{props.title}</h2>
+      <h4 className="bg-yellow-400 px-2 py-[2px] inline-block">{props.title}</h4>
       <div className="mt-2">
         {props.desc}
       </div>

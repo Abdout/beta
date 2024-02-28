@@ -9,10 +9,10 @@ const Layout = (props: {
  }) => {
   return (
     <div className='flex flex-col items-start gap-4'>
-      <Pargraph title='A. Definition' desc={props.definition}/>
-      <Pargraph title='B. Purpose' desc={props.purpose}/>
-      <Pargraph title='C. Procedure' desc={props.procedure}/>
-      <Pargraph title='D. Criteria' desc={props.criteria}/>
+      <Pargraph title='a. Definition' desc={props.definition}/>
+      <Pargraph title='b. Purpose' desc={props.purpose}/>
+      <Pargraph title='c. Procedure' desc={props.procedure}/>
+      <Pargraph title='d. Criteria' desc={props.criteria}/>
     </div>
   )
 }
