@@ -25,7 +25,7 @@ const ProjectList: React.FC = () => {
   const projectToEdit = projects.find((p: Project) => p._id === modal.id);
 
   return (
-    <div className="ml-4">
+    <>
       {modal.open &&
         (modal.id !== null && projectToEdit ? (
           <Modal
@@ -39,7 +39,7 @@ const ProjectList: React.FC = () => {
       {projects.map((t: Project) => (
         <div
           key={t._id}
-          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black md:w-[12rem] md:p-3"
+          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black md:w-[12rem] md:p-3 md:ml-4"
         >
           <Link href={`/project/${t._id}`}>
             <div>
@@ -70,7 +70,7 @@ const ProjectList: React.FC = () => {
       >
         <Icon icon="ph:plus-thin" width={70}/>
       </button>
-    </div>
+    </>
   );
 };
 
