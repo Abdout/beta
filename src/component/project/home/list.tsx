@@ -39,7 +39,7 @@ const ProjectList: React.FC = () => {
       {projects.map((t: Project) => (
         <div
           key={t._id}
-          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black md:w-[12rem] md:p-3 md:ml-4"
+          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black md:w-[12rem] md:ml-6"
         >
           <Link href={`/project/${t._id}`}>
             <div>
