@@ -173,7 +173,7 @@ const TaskList: React.FC = () => {
       
     </tbody>
   </table>
-</>
+</div>
   );
 };
 
