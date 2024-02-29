@@ -25,7 +25,7 @@ const ProjectList: React.FC = () => {
   const projectToEdit = projects.find((p: Project) => p._id === modal.id);
 
   return (
-    <div className="md:transform md:scale-80 md:flex">
+    <>
       {modal.open &&
         (modal.id !== null && projectToEdit ? (
           <Modal
@@ -39,21 +39,21 @@ const ProjectList: React.FC = () => {
       {projects.map((t: Project) => (
         <div
           key={t._id}
-          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black"
+          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black md:w-40 md:p-3"
         >
           <Link href={`/project/${t._id}`}>
             <div>
               <h1>{t.customer}</h1>
-              <h3>{t.location ? t.location : <span className="opacity-50">Location</span>}</h3>
-              <h4>Osman</h4>
-              <div className="flex gap-2 items-center">
-                <div className="rounded-full bg-green-600 w-[13px] h-[13px]"></div>
-                <h4>Done</h4>
+              <h3 className="md:text-base">{t.location ? t.location : <span className="opacity-50">Location</span>}</h3>
+              <h4 className="md:text-sm">Osman</h4>
+              <div className="flex gap-2 md:gap-[6px] items-center">
+                <div className="rounded-full bg-green-600 w-[13px] h-[13px] md:w-3 md:h-3"></div>
+                <h4 className="md:text-sm">Done</h4>
               </div>
             </div>
           </Link>
 
-          <div className="flex gap-2 mt-4">
+          <div className="flex gap-2 mt-4 md:gap-[6px] md:mt-3">
             <Delete id={t._id || ''} />
             <button 
              className="opacity-80 hover:opacity-100"
@@ -70,7 +70,7 @@ const ProjectList: React.FC = () => {
       >
         <Icon icon="ph:plus-thin" width={70}/>
       </button>
-    </div>
+    </>
   );
 };
 
