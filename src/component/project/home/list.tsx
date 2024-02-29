@@ -25,7 +25,7 @@ const ProjectList: React.FC = () => {
   const projectToEdit = projects.find((p: Project) => p._id === modal.id);
 
   return (
-    <div className="grid grid-cols-4 gap-3 md:gap-2 transform scale-90">
+    <div className="md:transform md:scale-80">
       {modal.open &&
         (modal.id !== null && projectToEdit ? (
           <Modal
