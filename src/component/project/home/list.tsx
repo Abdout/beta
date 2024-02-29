@@ -25,7 +25,7 @@ const ProjectList: React.FC = () => {
   const projectToEdit = projects.find((p: Project) => p._id === modal.id);
 
   return (
-    <div className="md:transform md:scale-80">
+    <div className="md:transform md:scale-80 md:flex">
       {modal.open &&
         (modal.id !== null && projectToEdit ? (
           <Modal
