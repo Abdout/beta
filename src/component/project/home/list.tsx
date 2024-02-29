@@ -25,7 +25,7 @@ const ProjectList: React.FC = () => {
   const projectToEdit = projects.find((p: Project) => p._id === modal.id);
 
   return (
-    <>
+    <div className="ml-4">
       {modal.open &&
         (modal.id !== null && projectToEdit ? (
           <Modal
@@ -65,12 +65,12 @@ const ProjectList: React.FC = () => {
       ))}
 
       <button
-        className="p-4 border m-2 w-60 flex flex-col items-center justify-center hover:border-black opacity-70 hover:opacity-100"
+        className="p-4 border m-2 w-60 md:w-[12rem] flex flex-col items-center justify-center hover:border-black opacity-70 hover:opacity-100"
         onClick={() => openModal("")}
       >
         <Icon icon="ph:plus-thin" width={70}/>
       </button>
-    </>
+    </div>
   );
 };
 
