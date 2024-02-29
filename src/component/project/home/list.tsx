@@ -39,7 +39,7 @@ const ProjectList: React.FC = () => {
       {projects.map((t: Project) => (
         <div
           key={t._id}
-          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black md:w-[12rem] md:ml-6"
+          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black md:w-[12rem] md:ml-6 mr-2"
         >
           <Link href={`/project/${t._id}`}>
             <div>
@@ -65,7 +65,7 @@ const ProjectList: React.FC = () => {
       ))}
 
       <button
-        className="p-4 border m-2 w-60 md:w-[12rem] flex flex-col items-center justify-center hover:border-black opacity-70 hover:opacity-100"
+        className="p-4 border m-2 w-60 md:w-[12rem] flex flex-col items-center justify-center hover:border-black opacity-70 hover:opacity-100 ml-2"
         onClick={() => openModal("")}
       >
         <Icon icon="ph:plus-thin" width={70}/>
