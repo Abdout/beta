@@ -65,7 +65,7 @@ const ProjectList: React.FC = () => {
       ))}
 
       <button
-        className="p-4 border m-2 md:ml-4 w-60 md:w-[12rem] flex flex-col items-center justify-center hover:border-black opacity-70 hover:opacity-100"
+        className="p-4 border m-2 md:ml-6 w-60 md:w-[12rem] flex flex-col items-center justify-center hover:border-black opacity-70 hover:opacity-100"
         onClick={() => openModal("")}
       >
         <Icon icon="ph:plus-thin" width={70}/>

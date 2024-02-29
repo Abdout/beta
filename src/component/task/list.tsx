@@ -67,7 +67,7 @@ const TaskList: React.FC = () => {
   // const taskToEdit = tasks.find((task: Task) => task._id === modal.id);
 
   return (
-    <div className="md:scale-90 px-4 ">
+    <div className="md:scale-90 w-full px-4 ">
   {modal.open && modal.id === null && <Modal content={<Create />} />}
   <div className="flex justify-end">
     <button
