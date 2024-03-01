@@ -39,21 +39,21 @@ const ProjectList: React.FC = () => {
       {projects.map((t: Project) => (
         <div
           key={t._id}
-          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black md:w-[12rem] md:ml-6 mr-2"
+          className="p-4 border m-2 w-60 flex flex-col items-start hover:border-black"
         >
           <Link href={`/project/${t._id}`}>
             <div>
               <h1>{t.customer}</h1>
-              <h3 className="md:text-base">{t.location ? t.location : <span className="opacity-50">Location</span>}</h3>
-              <h4 className="md:text-[15px]">Osman</h4>
-              <div className="flex gap-2 md:gap-[7px] items-center">
+              <h3>{t.location ? t.location : <span className="opacity-50">Location</span>}</h3>
+              <h4>Osman</h4>
+              <div className="flex gap-2 items-center">
                 <div className="rounded-full bg-green-600 w-[13px] h-[13px] md:w-3 md:h-3"></div>
                 <h4 className="md:text-[15px]">Done</h4>
               </div>
             </div>
           </Link>
 
-          <div className="flex gap-2 mt-4 md:gap-[7px]">
+          <div className="flex gap-2 mt-4 ">
             <Delete id={t._id || ''} />
             <button 
              className="opacity-80 hover:opacity-100"
@@ -65,7 +65,7 @@ const ProjectList: React.FC = () => {
       ))}
 
       <button
-        className="p-4 border m-2 md:ml-6 w-60 md:w-[12rem] flex flex-col items-center justify-center hover:border-black opacity-70 hover:opacity-100"
+        className="p-4 border m-2  w-60  flex flex-col items-center justify-center hover:border-black opacity-70 hover:opacity-100"
         onClick={() => openModal("")}
       >
         <Icon icon="ph:plus-thin" width={70}/>
