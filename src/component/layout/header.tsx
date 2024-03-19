@@ -1,7 +1,7 @@
 "use client";
 import SmIcon from "@/component/atom/icon/sm";
 import Burger from "@/component/atom/icon/burger";
-import { UserButton } from "@/component/auth/user-button";
+
 
 const Header = () => {
   console.log('Rendering Header');
@@ -13,7 +13,7 @@ const Header = () => {
           <div className="profile">
             <div className="profile-overlay"></div>
             <div className=" z-20 w-full h-full">
-              <UserButton />
+              
             </div>
           </div>
         </div>

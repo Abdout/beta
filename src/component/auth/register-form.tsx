@@ -20,7 +20,7 @@ import { Button } from "@/component/auth/ui/button";
 import { FormError } from "@/component/auth/error";
 import { FormSuccess } from "@/component/auth/success";
 import { RegisterSchema } from "@/model/auth/zod";
-import { register } from "@/server/auth/join";
+// import { register } from "@/server/auth/join";
 
 
 export const RegisterForm = () => {
@@ -41,13 +41,13 @@ export const RegisterForm = () => {
     setError("");
     setSuccess("");
     
-    startTransition(() => {
-      register(values)
-        .then((data) => {
-          setError(data.error);
-          setSuccess(data.success);
-        });
-    });
+    // startTransition(() => {
+    //   register(values)
+    //     .then((data) => {
+    //       setError(data.error);
+    //       setSuccess(data.success);
+    //     });
+    // });
   };
 
   return (

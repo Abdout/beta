@@ -8,7 +8,7 @@ import { useSearchParams } from "next/navigation";
 import { CardWrapper } from "@/component/auth/card-wrapper";
 import { FormError } from "@/component/auth/error";
 import { FormSuccess } from "@/component/auth/success";
-import { newVerification } from "@/server/auth/verification";
+// import { newVerification } from "@/server/auth/verification";
 
 export const NewVerificationForm = () => {
   const [error, setError] = useState<string | undefined>();
@@ -26,14 +26,14 @@ export const NewVerificationForm = () => {
       return;
     }
 
-    newVerification(token)
-      .then((data) => {
-        setSuccess(data.success);
-        setError(data.error);
-      })
-      .catch(() => {
-        setError("Something went wrong!");
-      })
+    // newVerification(token)
+    //   .then((data) => {
+    //     setSuccess(data.success);
+    //     setError(data.error);
+    //   })
+    //   .catch(() => {
+    //     setError("Something went wrong!");
+    //   })
   }, [token, success, error]);
 
   useEffect(() => {

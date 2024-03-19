@@ -22,7 +22,7 @@ import { Button } from "@/component/auth/ui/button";
 import { FormError } from "@/component/auth/error";
 import { FormSuccess } from "@/component/auth/success";
 import { LoginSchema } from "@/model/auth/zod";
-import { login } from "@/server/auth/login";
+// import { login } from "@/server/auth/login";
 
 
 export const LoginForm = () => {
@@ -46,31 +46,32 @@ export const LoginForm = () => {
   });
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-    console.log('onSubmit started');
-    setError("");
-    setSuccess("");
+    // console.log('onSubmit started');
+    // setError("");
+    // setSuccess("");
     
-    startTransition(() => {
-      console.log('Calling login');
-      login(values, callbackUrl)
-        .then((data) => {
-          console.log('Login response:', data); 
-          if (data?.error) {
-            form.reset();
-            setError(data.error);
-          }
+    // startTransition(() => {
+    //   console.log('Calling login');
+    //   login(values, callbackUrl)
+    //     .then((data) => {
+    //       console.log('Login response:', data); 
+    //       if (data?.error) {
+    //         form.reset();
+    //         setError(data.error);
+    //       }
 
-          if (data?.success) {
-            form.reset();
-            setSuccess(data.success);
-          }
+    //       if (data?.success) {
+    //         form.reset();
+    //         setSuccess(data.success);
+    //       }
 
-          if (data?.twoFactor) {
-            setShowTwoFactor(true);
-          }
-        })
-        .catch(() => setError("Something went wrong"));
-    });
+    //       if (data?.twoFactor) {
+    //         setShowTwoFactor(true);
+    //       }
+    //     })
+    //     .catch(() => setError("Something went wrong"));
+    // });
+
   };
 
   return (

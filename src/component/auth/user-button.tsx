@@ -16,17 +16,17 @@ import {
 } from "@/component/auth/ui/avatar";
 
 import { LogoutButton } from "@/component/auth/logout-button";
-import { useCurrentUser } from "@/hook/use-current-user";
+// import { useCurrentUser } from "@/hook/use-current-user";
 
 export const UserButton = () => {
-  const user = useCurrentUser();
-  console.log('Current user:', user); 
+  // const user = useCurrentUser();
+
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar>
-          <AvatarImage src={user?.image || ""} />
+          <AvatarImage src={ ""} />
           <AvatarFallback className="bg-sky-500">
             <FaUser className="text-white" />
           </AvatarFallback>

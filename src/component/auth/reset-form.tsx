@@ -20,7 +20,7 @@ import { Button } from "@/component/auth/ui/button";
 import { FormError } from "@/component/auth/error";
 import { FormSuccess } from "@/component/auth/success";
 import { ResetSchema } from "@/model/auth/zod";
-import { reset } from "@/server/auth/reset";
+// import { reset } from "@/server/auth/reset";
 
 
 export const ResetForm = () => {
@@ -39,13 +39,13 @@ export const ResetForm = () => {
     setError("");
     setSuccess("");
 
-    startTransition(() => {
-      reset(values)
-        .then((data) => {
-          setError(data?.error);
-          setSuccess(data?.success);
-        });
-    });
+    // startTransition(() => {
+    //   reset(values)
+    //     .then((data) => {
+    //       setError(data?.error);
+    //       setSuccess(data?.success);
+    //     });
+    // });
   };
 
   return (
