@@ -23,6 +23,6 @@
       
     }
   },
-  "include": ["src/next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/model/connect/db.ts", "src/app/api/report/route.js", "src/app/header/page.jsx", "src/component/report/header/form.tsx", "src/component/report/header/table.tsx", "src/app/daily/page.tsx", "src/component/project/home/list.tsx", "src/component/modal/project/add.jsx", "src/component/modal/project/create.jsx", "src/component/project/home/crud/delete.tsx", "src/app/api/report/footer/route.ts", "src/provider/project.tsx", "src/provider/global.js"],
+  "include": ["src/next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/model/connect/db.ts", "src/app/api/report/route.js", "src/app/header/page.jsx", "src/component/report/header/form.tsx", "src/component/report/header/table.tsx", "src/app/daily/page.tsx", "src/component/project/home/list.tsx", "src/component/modal/project/add.jsx", "src/component/modal/project/create.jsx", "src/component/project/home/crud/delete.tsx", "src/app/api/report/footer/route.ts", "src/provider/project.tsx", "src/provider/global.js", "src/middleware.js"],
   "exclude": ["node_modules"]
 }
