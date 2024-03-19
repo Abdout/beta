@@ -13,7 +13,6 @@
     "@clerk/nextjs": "^4.28.1",
     "@hookform/resolvers": "^3.3.4",
     "@iconify/react": "^4.1.1",
-    "@mongodb-js/zstd": "^1.2.0",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",

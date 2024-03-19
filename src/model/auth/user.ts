@@ -1,21 +1,23 @@
-import { MongoClient, Collection } from 'mongodb';
+import mongoose, { Schema } from 'mongoose';
 
-const uri = process.env.MONGODB_URI;
-if (!uri) {
-  throw new Error('Please define the MONGODB_URI environment variable');
+const UserSchema = new Schema({
+  name: String,
+  email: String,
+  password: String,
+  emailVerified: Date,
+  role: {
+    type: String,
+    enum: ['USER', 'ADMIN'],
+    default: 'USER'
+  },
+  isTwoFactorEnabled: Boolean,
+});
+
+let User:any;
+if (mongoose.models?.User) {
+  User = mongoose.model('User');
+} else {
+  User = mongoose.model('User', UserSchema);
 }
 
-const client = new MongoClient(uri);
-
-let User: Collection | undefined;
-
-async function getUserCollection() {
-  if (!User) {
-    await client.connect();
-    const db = client.db('Test_db');
-    User = db.collection('User');
-  }
-  return User;
-}
-
-export default getUserCollection;
+export default User;

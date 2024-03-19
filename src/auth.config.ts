@@ -4,7 +4,6 @@ import Credentials from "next-auth/providers/credentials";
 
 import User from "@/model/auth/user";
 import { LoginSchema } from "@/model/auth/zod";
-import getUserCollection from "@/model/auth/user";
 
 
 export default {
@@ -21,12 +20,9 @@ export default {
         if (validatedFields.success) {
           const { email, password } = validatedFields.data;
           
-           // Get the User collection
-           const User = await getUserCollection();
-
-           // Use MongoDB's findOne method to get the user by email
-           const user = await User.findOne({ email });
-           if (!user || !user.password) return null;
+          // Use Mongoose's findOne method to get the user by email
+          const user = await User.findOne({ email });
+          if (!user || !user.password) return null;
 
           const passwordsMatch = await bcrypt.compare(
             password,

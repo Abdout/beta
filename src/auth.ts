@@ -8,9 +8,8 @@ import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation
 import { UserRole } from "@/lib/auth/role";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/lib/auth/mongo";
-import getUserCollection from "@/model/auth/user";
+import User from "@/model/auth/user";
 import { getAccountByUserId } from "@/data/account";
-import { ObjectId } from "mongodb";
 
 
 type SessionUser = {
@@ -48,8 +47,7 @@ export const {
   events: {
     async linkAccount({ user }) {
       if (user.id) {
-        const User = await getUserCollection();
-        await User.updateOne({ _id: new ObjectId(user.id) }, { $set: { emailVerified: new Date() } });
+        await User.findByIdAndUpdate(user.id, { emailVerified: new Date() });
       }
     }
   },
