@@ -1,13 +1,9 @@
-"use client";
-import { SignUp } from "@clerk/nextjs";
-import React from "react";
+import { RegisterForm } from "@/component/auth/register-form";
 
-function page() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <SignUp />
-    </div>
+const RegisterPage = () => {
+  return ( 
+    <RegisterForm />
   );
 }
-
-export default page;
+ 
+export default RegisterPage;

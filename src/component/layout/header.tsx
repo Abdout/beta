@@ -1,9 +1,10 @@
 "use client";
 import SmIcon from "@/component/atom/icon/sm";
 import Burger from "@/component/atom/icon/burger";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton } from "@/component/auth/user-button";
 
 const Header = () => {
+  console.log('Rendering Header');
   return (
     <>
       <div className=" p-4">

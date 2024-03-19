@@ -1,5 +1,4 @@
 import React from 'react';
-import { ClerkProvider } from "@clerk/nextjs";
 import { ProjectProvider } from "@/provider/project";
 import { ModalProvider } from "@/provider/modal";
 import { CreateProvider } from "@/provider/create";
@@ -13,7 +12,7 @@ import { KitProvider } from './kit';
 
 export const MainProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <ClerkProvider>
+    
       <ModalProvider>
         <CreateProvider>
           <PostProjectProvider>
@@ -31,6 +30,6 @@ export const MainProvider: React.FC<{ children: React.ReactNode }> = ({ children
           </PostProjectProvider>
         </CreateProvider>
       </ModalProvider>
-    </ClerkProvider>
+    
   );
 };
