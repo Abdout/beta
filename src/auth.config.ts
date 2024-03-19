@@ -20,24 +20,24 @@ export default {
         if (validatedFields.success) {
           const { email, password } = validatedFields.data;
           
-          // Use Mongoose's findOne method to get the user by email
-          const user = await User.findOne({ email });
-          if (!user || !user.password) return null;
+          // // Use Mongoose's findOne method to get the user by email
+          // const user = await User.findOne({ email });
+          // if (!user || !user.password) return null;
 
-          const passwordsMatch = await bcrypt.compare(
-            password,
-            user.password,
-          );
+          // const passwordsMatch = await bcrypt.compare(
+          //   password,
+          //   user.password,
+          // );
 
-          if (passwordsMatch) {
-            // Convert the Mongoose document to a plain JavaScript object
-            const userObj = user.toObject();
-            // Return a NextAuth User object
-            return {
-              name: userObj.name,
-              email: userObj.email,
-            } as NextAuthUser;
-          }
+          // if (passwordsMatch) {
+          //   // Convert the Mongoose document to a plain JavaScript object
+          //   const userObj = user.toObject();
+          //   // Return a NextAuth User object
+          //   return {
+          //     name: userObj.name,
+          //     email: userObj.email,
+          //   } as NextAuthUser;
+          // }
         }
 
         return null;
