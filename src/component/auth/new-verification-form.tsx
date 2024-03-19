@@ -14,17 +14,17 @@ export const NewVerificationForm = () => {
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
 
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
 
-  const token = searchParams.get("token");
+  // const token = searchParams.get("");
 
   const onSubmit = useCallback(() => {
     if (success || error) return;
 
-    if (!token) {
-      setError("Missing token!");
-      return;
-    }
+    // if () {
+    //   setError("Missing token!");
+    //   return;
+    // }
 
     // newVerification(token)
     //   .then((data) => {
@@ -34,7 +34,7 @@ export const NewVerificationForm = () => {
     //   .catch(() => {
     //     setError("Something went wrong!");
     //   })
-  }, [token, success, error]);
+  }, [ success, error]);
 
   useEffect(() => {
     onSubmit();

@@ -26,11 +26,11 @@ import { LoginSchema } from "@/model/auth/zod";
 
 
 export const LoginForm = () => {
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl");
-  const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
-    ? "Email already in use with different provider!"
-    : "";
+  // const searchParams = useSearchParams();
+  // const callbackUrl = searchParams.get("callbackUrl");
+  // const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
+  //   ? "Email already in use with different provider!"
+  //   : "";
 
   const [showTwoFactor, setShowTwoFactor] = useState(false);
   const [error, setError] = useState<string | undefined>("");
@@ -158,7 +158,7 @@ export const LoginForm = () => {
             </>
           )}
           </div>
-          <FormError message={error || urlError} />
+          <FormError message={error} />
           <FormSuccess message={success} />
           <Button
             disabled={isPending}
