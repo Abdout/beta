@@ -34,7 +34,7 @@ export const newVerification = async (token: string) => {
 
 
     // one time usage !
-    // await VerificationToken.findByIdAndDelete(existingToken.id);
+    await VerificationToken.findByIdAndDelete(existingToken.id);
 
     return { success: "Email verified!" };
   } else {

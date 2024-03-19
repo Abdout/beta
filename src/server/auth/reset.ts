@@ -4,7 +4,7 @@ import * as z from "zod";
 
 import { getUserByEmail } from "@/data/user";
 import { sendPasswordResetEmail } from "@/lib/auth/mail";
-// import { generatePasswordResetToken } from "@/lib/auth/tokens";
+import { generatePasswordResetToken } from "@/lib/auth/tokens";
 import connectDB from "@/model/connect/db";
 import { ResetSchema } from "@/model/auth/zod";
 
@@ -24,19 +24,19 @@ export const reset = async (values: z.infer<typeof ResetSchema>) => {
     return { error: "Email not found!" };
   }
 
-  // if (email) {
-  //   const passwordResetToken = await generatePasswordResetToken(email);
-  //   if (passwordResetToken && typeof passwordResetToken.email === 'string' && passwordResetToken.token) {
-  //     await sendPasswordResetEmail(
-  //       passwordResetToken.email,
-  //       passwordResetToken.token,
-  //     );
+  if (email) {
+    const passwordResetToken = await generatePasswordResetToken(email);
+    if (passwordResetToken && typeof passwordResetToken.email === 'string' && passwordResetToken.token) {
+      await sendPasswordResetEmail(
+        passwordResetToken.email,
+        passwordResetToken.token,
+      );
 
-  //     return { success: "Reset email sent!" };
-  //   } else {
-  //     return { error: "Reset email or token is not defined!" };
-  //   }
-  // } else {
-  //   return { error: "Email is not defined!" };
-  // }
+      return { success: "Reset email sent!" };
+    } else {
+      return { error: "Reset email or token is not defined!" };
+    }
+  } else {
+    return { error: "Email is not defined!" };
+  }
 }
