@@ -7,7 +7,7 @@ import User from "@/model/auth/user";
 
 import { getUserByEmail } from "@/data/user";
 import { sendVerificationEmail } from "@/lib/auth/mail";
-// import { generateVerificationToken } from "@/lib/auth/tokens";
+import { generateVerificationToken } from "@/lib/auth/tokens";
 import connectDB from "@/model/connect/db";
 import { RegisterSchema } from "@/model/auth/zod";
 
@@ -45,18 +45,18 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   });
 
     if (email) {
-      // const verificationToken = await generateVerificationToken(email);
-      // if (verificationToken && typeof verificationToken.email === 'string' && verificationToken.token) {
-      //   await sendVerificationEmail(
-      //     verificationToken.email,
-      //     verificationToken.token,
-      //   );
+      const verificationToken = await generateVerificationToken(email);
+      if (verificationToken && typeof verificationToken.email === 'string' && verificationToken.token) {
+        await sendVerificationEmail(
+          verificationToken.email,
+          verificationToken.token,
+        );
     
         return { success: "Confirmation email sent!" };
       } else {
         return { error: "Verification email or token is not defined!" };
       }
-    // } else {
-    //   return { error: "Email is not defined!" };
-    // }
+    } else {
+      return { error: "Email is not defined!" };
+    }
   } // Add this closing curly brace
