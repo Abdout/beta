@@ -22,11 +22,11 @@ export const update = async (session: Session, user: SessionUser) => {
     ...session.user,
     name: user.name,
     email: user.email,
-    // isTwoFactorEnabled: user.isTwoFactorEnabled,
-    // role: user.role as UserRole, // Cast role to UserRole
+    isTwoFactorEnabled: user.isTwoFactorEnabled,
+    role: user.role as UserRole, // Cast role to UserRole
     id: session.user?.id,
     image: session.user?.image,
-    // isOAuth: session.user?.isOAuth || false,
+    isOAuth: session.user?.isOAuth || false,
   };
 
   return session;
@@ -72,11 +72,11 @@ export const {
         session.user = {
           ...session.user,
           id: token.sub,
-          // role: token.role as UserRole,
-          // isTwoFactorEnabled: token.isTwoFactorEnabled as boolean,
+          role: token.role as UserRole,
+          isTwoFactorEnabled: token.isTwoFactorEnabled as boolean,
           name: token.name,
           email: token.email || '',
-          // isOAuth: token.isOAuth as boolean,
+          isOAuth: token.isOAuth as boolean,
         };
       }
     
