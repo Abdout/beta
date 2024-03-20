@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
 import { useSearchParams } from "next/navigation";
+
+
 import { CardWrapper } from "@/component/auth/card-wrapper";
 import { FormError } from "@/component/auth/error";
 import { FormSuccess } from "@/component/auth/success";
@@ -13,6 +15,7 @@ export const NewVerificationForm = () => {
   const [success, setSuccess] = useState<string | undefined>();
 
   const searchParams = useSearchParams();
+
   const token = searchParams.get("token");
 
   const onSubmit = useCallback(() => {
