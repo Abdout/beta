@@ -3,38 +3,35 @@
 import { useCallback, useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
 import { useSearchParams } from "next/navigation";
-
-
 import { CardWrapper } from "@/component/auth/card-wrapper";
 import { FormError } from "@/component/auth/error";
 import { FormSuccess } from "@/component/auth/success";
-// import { newVerification } from "@/server/auth/verification";
+import { newVerification } from "@/server/auth/verification";
 
 export const NewVerificationForm = () => {
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
 
-  // const searchParams = useSearchParams();
-
-  // const token = searchParams.get("");
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
 
   const onSubmit = useCallback(() => {
     if (success || error) return;
 
-    // if () {
-    //   setError("Missing token!");
-    //   return;
-    // }
+    if (!token) {
+      setError("Missing token!");
+      return;
+    }
 
-    // newVerification(token)
-    //   .then((data) => {
-    //     setSuccess(data.success);
-    //     setError(data.error);
-    //   })
-    //   .catch(() => {
-    //     setError("Something went wrong!");
-    //   })
-  }, [ success, error]);
+    newVerification(token)
+      .then((data) => {
+        setSuccess(data.success);
+        setError(data.error);
+      })
+      .catch(() => {
+        setError("Something went wrong!");
+      })
+  }, [token, success, error]);
 
   useEffect(() => {
     onSubmit();
