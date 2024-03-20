@@ -11,19 +11,27 @@ export default async function authorize(req: NextApiRequest, res: NextApiRespons
 
     if (validatedFields.success) {
       const { email, password } = validatedFields.data;
+      console.log(`Credentials: ${email}, ${password}`); // Log the credentials
 
       // Connect to the database
       await connectDB();
 
       // Use the refactored User model to get the user by email
       const user = await User.findOne({ email });
+      console.log(`User found: ${!!user}`); // Log whether a user was found
+
       if (!user || !user.password) {
         res.status(401).json({ message: 'Invalid credentials' });
         return;
       }
 
-      // You would also need to check the password here
-      // ...
+      const passwordsMatch = await bcrypt.compare(password, user.password);
+      console.log(`Passwords match: ${passwordsMatch}`); // Log whether the passwords match
+
+      if (!passwordsMatch) {
+        res.status(401).json({ message: 'Invalid credentials' });
+        return;
+      }
 
       res.status(200).json({
         name: user.name,
