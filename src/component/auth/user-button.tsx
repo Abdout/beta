@@ -16,10 +16,10 @@ import {
 } from "@/component/auth/ui/avatar";
 
 import { LogoutButton } from "@/component/auth/logout-button";
-// import { useCurrentUser } from "@/hook/use-current-user";
+import { useCurrentUser } from "@/hook/use-current-user";
 
 export const UserButton = () => {
-  // const user = useCurrentUser();
+  const user = useCurrentUser();
 
 
   return (
