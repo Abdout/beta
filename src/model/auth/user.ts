@@ -1,21 +1,19 @@
 // user.ts
-import { connect } from "mongodb-lite";
+import mongoose, { Schema } from 'mongoose';
 
-const uri = "mongodb+srv://abdout:us9wohyDZ5uxLflT@cluster0.nxwo1gy.mongodb.net/Test_db";
+const UserSchema = new Schema({
+  name: String,
+  email: String,
+  password: String,
+  emailVerified: Date,
+  role: {
+    type: String,
+    enum: ['USER', 'ADMIN'],
+    default: 'USER'
+  },
+  isTwoFactorEnabled: Boolean,
+});
 
-async function findOne(query: Record<string, unknown>) {
-  const client = await connect(uri);
-  const db = client.db('test');
-  const users = db.collection('users');
+const User = mongoose.models.User || mongoose.model('User', UserSchema);
 
-  // find the user in the database
-  const user = await users.findOne(query);
-
-  client.close();
-
-  return user;
-}
-
-export default {
-  findOne,
-};
+export default User;
