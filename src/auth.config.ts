@@ -12,7 +12,7 @@ export default {
       },
       async authorize(credentials) {
         try {
-          const response = await fetch('/api/auth/authorize', {
+          const response = await fetch('/api/auth', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
