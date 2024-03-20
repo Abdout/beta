@@ -21,7 +21,7 @@ export default {
           const { email, password } = validatedFields.data;
           
           // // Use Mongoose's findOne method to get the user by email
-          // const user = await User.findOne({ email });
+          const user = await User.findOne({ email });
           // if (!user || !user.password) return null;
 
           // const passwordsMatch = await bcrypt.compare(
