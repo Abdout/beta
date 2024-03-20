@@ -1,1 +1,0 @@
-export const api = "http://eco.databayt.org/api";
