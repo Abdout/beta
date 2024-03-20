@@ -21,12 +21,12 @@ import { Button } from "@/component/auth/ui/button";
 import { FormError } from "@/component/auth/error";
 import { FormSuccess } from "@/component/auth/success";
 import { NewPasswordSchema } from "@/model/auth/zod";
-// import { newPassword } from "@/server/auth/password";
+import { newPassword } from "@/server/auth/password";
 
 
 export const NewPasswordForm = () => {
-  // const searchParams = useSearchParams();
-  // const token = searchParams.get("token");
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
 
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
@@ -39,18 +39,18 @@ export const NewPasswordForm = () => {
     },
   });
 
-  // const onSubmit = (values: z.infer<typeof NewPasswordSchema>) => {
-  //   setError("");
-  //   setSuccess("");
+  const onSubmit = (values: z.infer<typeof NewPasswordSchema>) => {
+    setError("");
+    setSuccess("");
 
-  //   startTransition(() => {
-  //     newPassword(values, token)
-  //       .then((data) => {
-  //         setError(data?.error);
-  //         setSuccess(data?.success);
-  //       });
-  //   });
-  // };
+    startTransition(() => {
+      newPassword(values, token)
+        .then((data) => {
+          setError(data?.error);
+          setSuccess(data?.success);
+        });
+    });
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -59,14 +59,14 @@ export const NewPasswordForm = () => {
       backButtonLabel="Back to login"
       backButtonHref="/"
     >
-      {/* <Form > */}
+      <Form {...form}>
         <form 
-          // onSubmit={form.handleSubmit(onSubmit)}
-          // className="space-y-6"
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-6"
         >
           <div className="space-y-4">
             <FormField
-              // control={form.control}
+              control={form.control}
               name="password"
               render={({ field }) => (
                 <FormItem>
@@ -94,7 +94,7 @@ export const NewPasswordForm = () => {
             Reset password
           </Button>
         </form>
-      {/* </Form> */}
+      </Form>
     </CardWrapper>
     </div>
   );
