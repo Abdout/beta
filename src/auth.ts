@@ -1,10 +1,8 @@
 import NextAuth, { Session } from "next-auth"
-import TwoFactorConfirmation from "@/model/auth/factor-confirm";
-
+// import TwoFactorConfirmation from "@/model/auth/factor-confirm";
 import authConfig from "./auth.config";
-import { getUserByEmail, getUserById } from "@/data/user";
-import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
-
+import { getUserByEmail } from "@/data/user";
+// import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 import { UserRole } from "@/lib/auth/role";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/lib/auth/mongo";
