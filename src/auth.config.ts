@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
 import type { NextAuthConfig, User as NextAuthUser } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-
 import User from "@/model/auth/user";
 import { LoginSchema } from "@/model/auth/zod";
 

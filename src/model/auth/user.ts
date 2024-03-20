@@ -1,23 +1,19 @@
 // user.ts
-import { MongoClient, Filter } from "mongodb";
+import { connect } from "mongodb-lite";
 
 const uri = "mongodb+srv://abdout:us9wohyDZ5uxLflT@cluster0.nxwo1gy.mongodb.net/Test_db";
-const client = new MongoClient(uri);
 
-async function findOne(query: Filter<unknown>) {
-  try {
-    await client.connect();
+async function findOne(query: Record<string, unknown>) {
+  const client = await connect(uri);
+  const db = client.db('test');
+  const users = db.collection('users');
 
-    const database = client.db('test');
-    const users = database.collection('users');
+  // find the user in the database
+  const user = await users.findOne(query);
 
-    // find the user in the database
-    const user = await users.findOne(query);
+  client.close();
 
-    return user;
-  } finally {
-    await client.close();
-  }
+  return user;
 }
 
 export default {
