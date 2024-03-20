@@ -1,23 +1,25 @@
-import mongoose, { Schema } from 'mongoose';
+// user.ts
+import { MongoClient, Filter } from "mongodb";
 
-const UserSchema = new Schema({
-  name: String,
-  email: String,
-  password: String,
-  emailVerified: Date,
-  role: {
-    type: String,
-    enum: ['USER', 'ADMIN'],
-    default: 'USER'
-  },
-  isTwoFactorEnabled: Boolean,
-});
+const uri = "mongodb+srv://abdout:us9wohyDZ5uxLflT@cluster0.nxwo1gy.mongodb.net/Test_db";
+const client = new MongoClient(uri);
 
-let User:any;
-if (mongoose.models?.User) {
-  User = mongoose.model('User');
-} else {
-  User = mongoose.model('User', UserSchema);
+async function findOne(query: Filter<unknown>) {
+  try {
+    await client.connect();
+
+    const database = client.db('test');
+    const users = database.collection('users');
+
+    // find the user in the database
+    const user = await users.findOne(query);
+
+    return user;
+  } finally {
+    await client.close();
+  }
 }
 
-export default User;
+export default {
+  findOne,
+};
