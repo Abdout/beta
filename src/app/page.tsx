@@ -1,35 +1,18 @@
-import { Poppins } from "next/font/google";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/component/auth/ui/button";
 import { LoginButton } from "@/component/auth/login-button";
-
-const font = Poppins({
-  subsets: ["latin"],
-  weight: ["600"]
-})
+import MdButton from "@/component/atom/button/md";
 
 export default function Home() {
   return (
-    <main className="flex h-full flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-800">
-      <div className="space-y-6 text-center">
-        <h1 className={cn(
-          "text-6xl font-semibold text-white drop-shadow-md",
-          font.className,
-        )}>
-          🔐 Databayt
-        </h1>
-        <p className="text-white text-lg">
-           Business Automation
-        </p>
-        <div>
-          <LoginButton  asChild>
-            <Button variant="secondary" size="lg">
-              Sign in
-            </Button>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="space-y-4 text-center">
+        <h1>Databayt</h1>
+        <p>Business Automation</p>
+        <div className="pt-6">
+          <LoginButton asChild>
+            <MdButton placeholder="Get started" />
           </LoginButton>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
