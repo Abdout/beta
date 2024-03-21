@@ -51,6 +51,7 @@ export const NewPasswordForm = () => {
   };
 
   return (
+    <div className="flex items-center justify-center min-h-screen">
     <CardWrapper
       headerLabel="Enter a new password"
       backButtonLabel="Back to login"
@@ -86,12 +87,13 @@ export const NewPasswordForm = () => {
           <Button
             disabled={isPending}
             type="submit"
-            className="w-full"
+            className="w-full text-[#fcfcfc]"
           >
             Reset password
           </Button>
         </form>
       </Form>
     </CardWrapper>
+    </div>
   );
 };

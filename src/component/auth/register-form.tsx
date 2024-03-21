@@ -49,8 +49,9 @@ export const RegisterForm = () => {
   };
 
   return (
+    <div className="flex items-center justify-center min-h-screen">
     <CardWrapper
-      headerLabel="Create an account"
+      headerLabel="القلم أقوى من الذاكرة"
       backButtonLabel="Already have an account?"
       backButtonHref="/login"
       showSocial
@@ -66,12 +67,11 @@ export const RegisterForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
-                      placeholder="John Doe"
+                      placeholder="Name"
                     />
                   </FormControl>
                   <FormMessage />
@@ -83,12 +83,12 @@ export const RegisterForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
-                      placeholder="john.doe@example.com"
+                      placeholder="Email"
                       type="email"
                     />
                   </FormControl>
@@ -101,12 +101,12 @@ export const RegisterForm = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
-                      placeholder="******"
+                      placeholder="Password"
                       type="password"
                     />
                   </FormControl>
@@ -120,12 +120,13 @@ export const RegisterForm = () => {
           <Button
             disabled={isPending}
             type="submit"
-            className="w-full"
+            className="w-full text-[#fcfcfc]"
           >
-            Create an account
+            Join
           </Button>
         </form>
       </Form>
     </CardWrapper>
+    </div>
   );
 };

@@ -40,6 +40,7 @@ export const NewVerificationForm = () => {
   }, [onSubmit]);
 
   return (
+    <div className="flex items-center justify-center min-h-screen">
     <CardWrapper
       headerLabel="Confirming your verification"
       backButtonLabel="Back to login"
@@ -55,5 +56,6 @@ export const NewVerificationForm = () => {
         )}
       </div>
     </CardWrapper>
+    </div>
   )
 }

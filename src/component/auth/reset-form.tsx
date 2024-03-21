@@ -47,8 +47,9 @@ export const ResetForm = () => {
   };
 
   return (
+    <div className="flex items-center justify-center min-h-screen">
     <CardWrapper
-      headerLabel="Forgot your password?"
+      headerLabel="القلم أقوى من الذاكرة"
       backButtonLabel="Back to login"
       backButtonHref="/login"
     >
@@ -63,12 +64,12 @@ export const ResetForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
-                      placeholder="john.doe@example.com"
+                      placeholder="Email"
                       type="email"
                     />
                   </FormControl>
@@ -82,12 +83,13 @@ export const ResetForm = () => {
           <Button
             disabled={isPending}
             type="submit"
-            className="w-full"
+            className="w-full text-[#fcfcfc]"
           >
-            Send reset email
+            Reset password
           </Button>
         </form>
       </Form>
     </CardWrapper>
+    </div>
   );
 };

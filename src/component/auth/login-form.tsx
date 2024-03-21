@@ -69,10 +69,11 @@ export const LoginForm = () => {
   };
 
   return (
+    <div className="flex items-center justify-center min-h-screen">
     <CardWrapper
-      headerLabel="Welcome back"
+      headerLabel="القلم أقوى من الذاكرة"
       backButtonLabel="Don't have an account?"
-      backButtonHref="/register"
+      backButtonHref="/join"
       showSocial
     >
       <Form {...form}>
@@ -107,12 +108,12 @@ export const LoginForm = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      
                       <FormControl>
                         <Input
                           {...field}
                           disabled={isPending}
-                          placeholder="john.doe@example.com"
+                          placeholder="Email"
                           type="email"
                         />
                       </FormControl>
@@ -125,12 +126,12 @@ export const LoginForm = () => {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      
                       <FormControl>
                         <Input
                           {...field}
                           disabled={isPending}
-                          placeholder="******"
+                          placeholder="Password"
                           type="password"
                         />
                       </FormControl>
@@ -140,7 +141,7 @@ export const LoginForm = () => {
                         asChild
                         className="px-0 font-normal"
                       >
-                        <Link href="/auth/reset">
+                        <Link href="/reset">
                           Forgot password?
                         </Link>
                       </Button>
@@ -156,12 +157,13 @@ export const LoginForm = () => {
           <Button
             disabled={isPending}
             type="submit"
-            className="w-full"
+            className="w-full text-[#fcfcfc]"
           >
             {showTwoFactor ? "Confirm" : "Login"}
           </Button>
         </form>
       </Form>
     </CardWrapper>
+    </div>
   );
 };
