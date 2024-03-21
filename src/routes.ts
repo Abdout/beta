@@ -15,10 +15,10 @@ export const publicRoutes = [
  */
 export const authRoutes = [
   "/login",
-  "/register",
+  "/join",
   "/error",
   "/reset",
-  "/new-password"
+  "/password"
 ];
 
 /**
