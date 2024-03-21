@@ -17,10 +17,10 @@ export const Header = ({
   return (
     <div className="w-full flex flex-col gap-y-4 items-center justify-center">
       <h1 className={cn(
-        "text-3xl font-semibold",
+        "text-2xl tracking-wider font-medium",
         font.className,
       )}>
-        🔐 Auth
+        Databayt
       </h1>
       <p className="text-muted-foreground text-sm">
         {label}
