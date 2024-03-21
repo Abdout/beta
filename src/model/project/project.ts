@@ -26,8 +26,12 @@ const voltageOptionSchema = new Schema({
 
 const projectSchema = new Schema(
   {
-    title: String,
+    customer: String, // replaced title with customer
     description: String,
+    location: String, // added location
+    consultant: String, // added consultant
+    client: String, // added client
+    status: String, // added status
     voltages: { LV: Boolean, MV: Boolean, HV: Boolean, EV: Boolean },
     lvOptions: voltageOptionSchema,
     mvOptions: voltageOptionSchema,
