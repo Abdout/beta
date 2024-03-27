@@ -38,7 +38,7 @@ export default auth((req) => {
     const encodedCallbackUrl = encodeURIComponent(callbackUrl);
 
     return Response.redirect(new URL(
-      `/login?callbackUrl=${encodedCallbackUrl}`,
+      `https://databayt.org/login?callbackUrl=${encodedCallbackUrl}`,
       nextUrl
     ));
   }
